@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCIA));
             this.buttonGetWindowName = new System.Windows.Forms.Button();
             this.textBoxWindowName = new System.Windows.Forms.TextBox();
             this.textBoxHwnd = new System.Windows.Forms.TextBox();
@@ -220,6 +221,7 @@
             this.Controls.Add(this.textBoxHwnd);
             this.Controls.Add(this.textBoxWindowName);
             this.Controls.Add(this.buttonGetWindowName);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(390, 340);
             this.Name = "FormCIA";
             this.Text = "ConsoleInputAssist by bss";

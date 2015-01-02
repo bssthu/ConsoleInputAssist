@@ -13,7 +13,7 @@ ConsoleInputAssist
                 
 ==================
 
-.Net 4.5
+.Net 4.0
 
 
 ![CC-BY-NC 4.0](https://i.creativecommons.org/l/by-nc/4.0/88x31.png)

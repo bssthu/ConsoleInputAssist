@@ -23,6 +23,15 @@ namespace ConsoleInputAssist
         [DllImport("user32.dll", EntryPoint = "GetWindowText")]
         static extern int GetWindowText(IntPtr hwnd, StringBuilder lpString, int nMaxCount);
 
+        [DllImport("User32.DLL")]
+        static extern int SendMessage(IntPtr hWnd, uint Msg, int wParam, string lParam);
+
+        [DllImport("User32.DLL")]
+        static extern int SendMessage(IntPtr hWnd, uint Msg, int wParam, int lParam); 
+
+        public const uint WM_SETTEXT = 0x000C;
+        public const uint WM_CHAR = 0x0102; 
+
         private IntPtr hwndAct = IntPtr.Zero;
         private bool isCatching = false;
 
@@ -63,12 +72,23 @@ namespace ConsoleInputAssist
         {
             if (listBoxSend.SelectedIndex >= 0)
             {
-                sendText(listBoxSend.SelectedItems.ToString(), checkBoxSendEnter.Checked);
+                sendText(listBoxSend.SelectedItem.ToString(), checkBoxSendEnter.Checked);
             }
         }
 
         private void sendText(String text, bool addEnter)
         {
+            if (hwndAct != IntPtr.Zero)
+            {
+                for (int i = 0; i < text.Length; i++)
+                {
+                    SendMessage(hwndAct, WM_CHAR, (int)text[i], 0);
+                }
+                if (addEnter)
+                {
+                    SendMessage(hwndAct, WM_CHAR, (int)'\r', 0);
+                }
+            }
         }
 	}
 }

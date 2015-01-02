@@ -45,6 +45,18 @@ namespace ConsoleInputAssist
             addItem(textBoxAdd.Text);
         }
 
+        private void buttonInsert_Click(object sender, EventArgs e)
+        {
+            if (listBoxSend.SelectedIndex >= 0)
+            {
+                listBoxSend.Items.Insert(listBoxSend.SelectedIndex, textBoxAdd.Text);
+            }
+            else
+            {
+                addItem(textBoxAdd.Text);
+            }
+        }
+
         private void listBoxSend_KeyDown(object sender, KeyEventArgs e)
         {
             if (Keys.Delete == e.KeyCode)

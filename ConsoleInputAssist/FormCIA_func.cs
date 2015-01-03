@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -35,6 +36,13 @@ namespace ConsoleInputAssist
         private IntPtr hwndAct = IntPtr.Zero;
         private bool isCatching = false;
 
+        private void clearHwnd()
+        {
+            hwndAct = IntPtr.Zero;
+            textBoxWindowName.Text = "";
+            textBoxHwnd.Text = "";
+        }
+
         private void formDeactivate(object sender, EventArgs e)
         {
             this.Deactivate -= new EventHandler(formDeactivate);
@@ -58,6 +66,15 @@ namespace ConsoleInputAssist
             textBoxWindowName.Text = str.ToString();
             isCatching = false;
             buttonGetWindowName.Enabled = true;
+        }
+
+        private void addTextboxTextToListbox()
+        {
+            addItem(textBoxAdd.Text);
+            if (checkBoxClearOnAdd.Checked)
+            {
+                textBoxAdd.Text = "";
+            }
         }
 
         private void addItem(String text)
@@ -88,6 +105,42 @@ namespace ConsoleInputAssist
                 {
                     SendMessage(hwndAct, WM_CHAR, (int)'\r', 0);
                 }
+            }
+        }
+
+        private void loadText(String fileName)
+        {
+            listBoxSend.Items.Clear();
+            try
+            {
+                StreamReader sr = new StreamReader(fileName);
+                String line = null;
+                while ((line = sr.ReadLine()) != null)
+                {
+                    addItem(line);
+                }
+                sr.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void saveText(String fileName)
+        {
+            try
+            {
+                StreamWriter sw = new StreamWriter(fileName);
+                foreach (String line in listBoxSend.Items)
+                {
+                    sw.WriteLine(line);
+                }
+                sw.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 	}

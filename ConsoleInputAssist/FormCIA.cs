@@ -25,24 +25,27 @@ namespace ConsoleInputAssist
             {
                 isCatching = true;
                 buttonGetWindowName.Enabled = false;
-                hwndAct = IntPtr.Zero;
-                textBoxWindowName.Text = "";
-                textBoxHwnd.Text = "";
+                clearHwnd();
                 this.Deactivate += new EventHandler(formDeactivate);
             }
+        }
+
+        private void buttonGetWindowName_MouseDown(object sender, MouseEventArgs e)
+        {
+            clearHwnd();
         }
 
         private void textBoxAdd_KeyDown(object sender, KeyEventArgs e)
         {
             if (Keys.Enter == e.KeyCode)
             {
-                addItem(textBoxAdd.Text);
+                addTextboxTextToListbox();
             }
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            addItem(textBoxAdd.Text);
+            addTextboxTextToListbox();
         }
 
         private void buttonInsert_Click(object sender, EventArgs e)
@@ -53,7 +56,7 @@ namespace ConsoleInputAssist
             }
             else
             {
-                addItem(textBoxAdd.Text);
+                addTextboxTextToListbox();
             }
         }
 
@@ -65,6 +68,10 @@ namespace ConsoleInputAssist
                 {
                     listBoxSend.Items.RemoveAt(listBoxSend.SelectedIndex);
                 }
+            }
+            if (Keys.Enter == e.KeyCode)
+            {
+                sendTextInListbox();
             }
         }
 
@@ -118,6 +125,40 @@ namespace ConsoleInputAssist
         private void buttonExit_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void buttonLoad_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Title = "选择文件";
+            ofd.Filter = "文本文档 (*.txt) |*.txt|所有文件 (*.*) |*.*";
+            ofd.Multiselect = false;
+            ofd.InitialDirectory = Application.StartupPath;
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                loadText(ofd.FileName);
+            }
+        }
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Title = "选择文件";
+            sfd.Filter = "文本文档 (*.txt) |*.txt|所有文件 (*.*) |*.*";
+            sfd.InitialDirectory = Application.StartupPath;
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                saveText(sfd.FileName);
+            }
+        }
+
+        private void FormCIA_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("退出？", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                    != DialogResult.Yes)
+            {
+                e.Cancel = true;
+            }
         }
     }
 }

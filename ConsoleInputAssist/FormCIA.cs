@@ -97,7 +97,13 @@ namespace ConsoleInputAssist
         {
             if (MouseButtons.Right == e.Button)
             {
-                sendTextInListbox();
+                // 选中行
+                int mouseIndex = listBoxSend.IndexFromPoint(new Point(e.X, e.Y));
+                if (mouseIndex >= 0 && mouseIndex < listBoxSend.Items.Count)
+                {
+                    listBoxSend.SelectedIndex = mouseIndex;
+                    textBoxAdd.Text = listBoxSend.SelectedItem.ToString();
+                }
             }
         }
 

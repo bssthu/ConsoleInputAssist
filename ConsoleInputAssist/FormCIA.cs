@@ -139,7 +139,7 @@ namespace ConsoleInputAssist
         private void buttonLoad_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Title = "选择文件";
+            ofd.Title = "打开文件";
             ofd.Filter = "文本文档 (*.txt) |*.txt|所有文件 (*.*) |*.*";
             ofd.Multiselect = false;
             ofd.InitialDirectory = Application.StartupPath;
@@ -152,7 +152,7 @@ namespace ConsoleInputAssist
         private void buttonSave_Click(object sender, EventArgs e)
         {
             SaveFileDialog sfd = new SaveFileDialog();
-            sfd.Title = "选择文件";
+            sfd.Title = "保存文件";
             sfd.Filter = "文本文档 (*.txt) |*.txt|所有文件 (*.*) |*.*";
             sfd.InitialDirectory = Application.StartupPath;
             if (sfd.ShowDialog() == DialogResult.OK)

@@ -23,6 +23,7 @@ namespace ConsoleInputAssist
         {
             if (!isCatching)
             {
+                // 开始捕获窗口时的逻辑处理
                 isCatching = true;
                 buttonGetWindowName.Enabled = false;
                 clearHwnd();
@@ -32,6 +33,7 @@ namespace ConsoleInputAssist
 
         private void buttonGetWindowName_MouseDown(object sender, MouseEventArgs e)
         {
+            // 不论点左右键都清空 HWND
             clearHwnd();
         }
 
@@ -50,6 +52,7 @@ namespace ConsoleInputAssist
 
         private void buttonInsert_Click(object sender, EventArgs e)
         {
+            // 插入到选中项前面
             if (listBoxSend.SelectedIndex >= 0)
             {
                 listBoxSend.Items.Insert(listBoxSend.SelectedIndex, textBoxAdd.Text);
@@ -62,6 +65,7 @@ namespace ConsoleInputAssist
 
         private void listBoxSend_KeyDown(object sender, KeyEventArgs e)
         {
+            // 按 Delete 删除选中项
             if (Keys.Delete == e.KeyCode)
             {
                 if (listBoxSend.SelectedIndex >= 0)
@@ -69,6 +73,7 @@ namespace ConsoleInputAssist
                     listBoxSend.Items.RemoveAt(listBoxSend.SelectedIndex);
                 }
             }
+            // 按 Enter 发送选中项
             if (Keys.Enter == e.KeyCode)
             {
                 sendTextInListbox();
@@ -95,10 +100,11 @@ namespace ConsoleInputAssist
 
         private void listBoxSend_MouseDown(object sender, MouseEventArgs e)
         {
+            // 选中的行
+            int mouseIndex = listBoxSend.IndexFromPoint(new Point(e.X, e.Y));
             if (MouseButtons.Left == e.Button)
             {
                 // 没点到则清空选择
-                int mouseIndex = listBoxSend.IndexFromPoint(new Point(e.X, e.Y));
                 if (mouseIndex < 0 || mouseIndex >= listBoxSend.Items.Count)
                 {
                     listBoxSend.SelectedItem = null;
@@ -106,8 +112,7 @@ namespace ConsoleInputAssist
             }
             if (MouseButtons.Right == e.Button)
             {
-                // 选中行
-                int mouseIndex = listBoxSend.IndexFromPoint(new Point(e.X, e.Y));
+                // 点右键，将该项文本填到输入框中，方便修改
                 if (mouseIndex >= 0 && mouseIndex < listBoxSend.Items.Count)
                 {
                     listBoxSend.SelectedIndex = mouseIndex;
@@ -134,7 +139,8 @@ namespace ConsoleInputAssist
             String helpText = "单击“捕获窗口”按钮，然后单击要操纵的窗口。\n" +
                 "右键单击“捕获窗口”可取消捕获状态。\n" +
                 "在TextBox中依次输入要添加的项，单击“添加”或按回车。\n" +
-                "在ListBox中选择要发送的项，双击或单击“发送”按钮，将内容发到目标窗口。\n" +
+                "单击“插入”可在选中项前面插入一项。\n" +
+                "在ListBox中选择要发送的项，按回车或双击或单击“发送”按钮，将内容发到目标窗口。按Delete键删除该项。\n" +
                 "可按需修改ListBox的内容，右键单击项可将其内容复制到TextBox。\n" +
                 "允许导入导出数据。";
             MessageBox.Show(helpText);

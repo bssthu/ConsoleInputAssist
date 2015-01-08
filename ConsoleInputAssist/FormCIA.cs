@@ -95,6 +95,15 @@ namespace ConsoleInputAssist
 
         private void listBoxSend_MouseDown(object sender, MouseEventArgs e)
         {
+            if (MouseButtons.Left == e.Button)
+            {
+                // 没点到则清空选择
+                int mouseIndex = listBoxSend.IndexFromPoint(new Point(e.X, e.Y));
+                if (mouseIndex < 0 || mouseIndex >= listBoxSend.Items.Count)
+                {
+                    listBoxSend.SelectedItem = null;
+                }
+            }
             if (MouseButtons.Right == e.Button)
             {
                 // 选中行

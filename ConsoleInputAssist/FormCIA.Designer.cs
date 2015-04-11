@@ -46,6 +46,7 @@
             this.checkBoxClearOnAdd = new System.Windows.Forms.CheckBox();
             this.buttonLoad = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
+            this.checkBoxSendMsg = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // buttonGetWindowName
@@ -88,7 +89,7 @@
             this.listBoxSend.ItemHeight = 12;
             this.listBoxSend.Location = new System.Drawing.Point(13, 67);
             this.listBoxSend.Name = "listBoxSend";
-            this.listBoxSend.Size = new System.Drawing.Size(319, 316);
+            this.listBoxSend.Size = new System.Drawing.Size(319, 340);
             this.listBoxSend.TabIndex = 3;
             this.listBoxSend.Click += new System.EventHandler(this.listBoxSend_Click);
             this.listBoxSend.DoubleClick += new System.EventHandler(this.listBoxSend_DoubleClick);
@@ -130,7 +131,7 @@
             // buttonSend
             // 
             this.buttonSend.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSend.Location = new System.Drawing.Point(338, 208);
+            this.buttonSend.Location = new System.Drawing.Point(338, 210);
             this.buttonSend.Name = "buttonSend";
             this.buttonSend.Size = new System.Drawing.Size(101, 23);
             this.buttonSend.TabIndex = 5;
@@ -141,7 +142,7 @@
             // buttonEmpty
             // 
             this.buttonEmpty.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonEmpty.Location = new System.Drawing.Point(338, 237);
+            this.buttonEmpty.Location = new System.Drawing.Point(338, 239);
             this.buttonEmpty.Name = "buttonEmpty";
             this.buttonEmpty.Size = new System.Drawing.Size(101, 23);
             this.buttonEmpty.TabIndex = 5;
@@ -152,7 +153,7 @@
             // buttonExit
             // 
             this.buttonExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonExit.Location = new System.Drawing.Point(338, 361);
+            this.buttonExit.Location = new System.Drawing.Point(338, 385);
             this.buttonExit.Name = "buttonExit";
             this.buttonExit.Size = new System.Drawing.Size(101, 23);
             this.buttonExit.TabIndex = 5;
@@ -163,7 +164,7 @@
             // buttonHelp
             // 
             this.buttonHelp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonHelp.Location = new System.Drawing.Point(338, 332);
+            this.buttonHelp.Location = new System.Drawing.Point(338, 356);
             this.buttonHelp.Name = "buttonHelp";
             this.buttonHelp.Size = new System.Drawing.Size(101, 23);
             this.buttonHelp.TabIndex = 5;
@@ -177,7 +178,7 @@
             this.checkBoxSendEnter.AutoSize = true;
             this.checkBoxSendEnter.Checked = true;
             this.checkBoxSendEnter.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxSendEnter.Location = new System.Drawing.Point(338, 266);
+            this.checkBoxSendEnter.Location = new System.Drawing.Point(338, 268);
             this.checkBoxSendEnter.Name = "checkBoxSendEnter";
             this.checkBoxSendEnter.Size = new System.Drawing.Size(84, 16);
             this.checkBoxSendEnter.TabIndex = 6;
@@ -188,7 +189,7 @@
             // 
             this.checkBoxSendOnClick.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBoxSendOnClick.AutoSize = true;
-            this.checkBoxSendOnClick.Location = new System.Drawing.Point(338, 288);
+            this.checkBoxSendOnClick.Location = new System.Drawing.Point(338, 290);
             this.checkBoxSendOnClick.Name = "checkBoxSendOnClick";
             this.checkBoxSendOnClick.Size = new System.Drawing.Size(84, 16);
             this.checkBoxSendOnClick.TabIndex = 6;
@@ -212,7 +213,7 @@
             this.checkBoxClearOnAdd.AutoSize = true;
             this.checkBoxClearOnAdd.Checked = true;
             this.checkBoxClearOnAdd.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxClearOnAdd.Location = new System.Drawing.Point(338, 310);
+            this.checkBoxClearOnAdd.Location = new System.Drawing.Point(338, 334);
             this.checkBoxClearOnAdd.Name = "checkBoxClearOnAdd";
             this.checkBoxClearOnAdd.Size = new System.Drawing.Size(84, 16);
             this.checkBoxClearOnAdd.TabIndex = 6;
@@ -241,11 +242,25 @@
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
+            // checkBoxSendMsg
+            // 
+            this.checkBoxSendMsg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkBoxSendMsg.AutoSize = true;
+            this.checkBoxSendMsg.Checked = true;
+            this.checkBoxSendMsg.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxSendMsg.Location = new System.Drawing.Point(338, 312);
+            this.checkBoxSendMsg.Name = "checkBoxSendMsg";
+            this.checkBoxSendMsg.Size = new System.Drawing.Size(42, 16);
+            this.checkBoxSendMsg.TabIndex = 6;
+            this.checkBoxSendMsg.Text = "MSG";
+            this.checkBoxSendMsg.UseVisualStyleBackColor = true;
+            // 
             // FormCIA
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(452, 401);
+            this.ClientSize = new System.Drawing.Size(452, 425);
+            this.Controls.Add(this.checkBoxSendMsg);
             this.Controls.Add(this.checkBoxClearOnAdd);
             this.Controls.Add(this.checkBoxSendOnClick);
             this.Controls.Add(this.checkBoxSendEnter);
@@ -264,7 +279,7 @@
             this.Controls.Add(this.textBoxWindowName);
             this.Controls.Add(this.buttonGetWindowName);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(390, 440);
+            this.MinimumSize = new System.Drawing.Size(390, 464);
             this.Name = "FormCIA";
             this.Text = "ConsoleInputAssist by bss";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormCIA_FormClosing);
@@ -292,6 +307,7 @@
         private System.Windows.Forms.CheckBox checkBoxClearOnAdd;
         private System.Windows.Forms.Button buttonLoad;
         private System.Windows.Forms.Button buttonSave;
+        private System.Windows.Forms.CheckBox checkBoxSendMsg;
     }
 }
 

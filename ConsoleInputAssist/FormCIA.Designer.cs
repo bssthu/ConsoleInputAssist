@@ -47,6 +47,8 @@
             this.buttonLoad = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.checkBoxSendMsg = new System.Windows.Forms.CheckBox();
+            this.numericUpDownSleepTime = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSleepTime)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonGetWindowName
@@ -254,12 +256,28 @@
             this.checkBoxSendMsg.TabIndex = 6;
             this.checkBoxSendMsg.Text = "MSG";
             this.checkBoxSendMsg.UseVisualStyleBackColor = true;
+            this.checkBoxSendMsg.CheckedChanged += new System.EventHandler(this.checkBoxSendMsg_CheckedChanged);
+            // 
+            // numericUpDownSleepTime
+            // 
+            this.numericUpDownSleepTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.numericUpDownSleepTime.Enabled = false;
+            this.numericUpDownSleepTime.Location = new System.Drawing.Point(386, 311);
+            this.numericUpDownSleepTime.Maximum = new decimal(new int[] {
+            90000,
+            0,
+            0,
+            0});
+            this.numericUpDownSleepTime.Name = "numericUpDownSleepTime";
+            this.numericUpDownSleepTime.Size = new System.Drawing.Size(54, 21);
+            this.numericUpDownSleepTime.TabIndex = 8;
             // 
             // FormCIA
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(452, 425);
+            this.Controls.Add(this.numericUpDownSleepTime);
             this.Controls.Add(this.checkBoxSendMsg);
             this.Controls.Add(this.checkBoxClearOnAdd);
             this.Controls.Add(this.checkBoxSendOnClick);
@@ -283,6 +301,7 @@
             this.Name = "FormCIA";
             this.Text = "ConsoleInputAssist by bss";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormCIA_FormClosing);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSleepTime)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -308,6 +327,7 @@
         private System.Windows.Forms.Button buttonLoad;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.CheckBox checkBoxSendMsg;
+        private System.Windows.Forms.NumericUpDown numericUpDownSleepTime;
     }
 }
 

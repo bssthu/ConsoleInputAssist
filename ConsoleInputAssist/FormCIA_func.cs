@@ -107,6 +107,8 @@ namespace ConsoleInputAssist
 
         private void sendTextInput(IntPtr hwnd, String text)
         {
+            this.Enabled = false;
+
             WinAPI.INPUT inputShift = new WinAPI.INPUT();
             inputShift.Type = 1;
             inputShift.ui.ki.wVk = WinAPI.VK_LSHIFT;
@@ -131,26 +133,32 @@ namespace ConsoleInputAssist
                 bool pressShift = char.IsLetter(text[i]) &&
                         ((WinAPI.GetKeyState(WinAPI.VK_CAPITAL) != 0) ^ char.IsUpper(text[i])); // upper case
                 pressShift |= upperKey.Contains(text[i]);    // other
-                
+
                 // shift down (if neccessary)
                 if (pressShift)
                 {
+                    sleep((int)numericUpDownSleepTime.Value);
                     theShiftInput[0].ui.ki.dwFlags = 0;
                     WinAPI.SendInput(1, theShiftInput, Marshal.SizeOf(inputShift));
                 }
                 // key down
+                sleep((int)numericUpDownSleepTime.Value);
                 WinAPI.INPUT[] theInput = new WinAPI.INPUT[] { input };
                 WinAPI.SendInput(1, theInput, Marshal.SizeOf(input));
+                sleep((int)numericUpDownSleepTime.Value);
                 // key up
+                sleep((int)numericUpDownSleepTime.Value);
                 theInput[0].ui.ki.dwFlags = WinAPI.KEYEVENTF_KEYUP;
                 WinAPI.SendInput(1, theInput, Marshal.SizeOf(input));
                 // shift up
                 if (pressShift)
                 {
+                    sleep((int)numericUpDownSleepTime.Value);
                     theShiftInput[0].ui.ki.dwFlags = WinAPI.KEYEVENTF_KEYUP;
                     WinAPI.SendInput(1, theShiftInput, Marshal.SizeOf(inputShift));
                 }
             }
+            this.Enabled = true;
         }
 
         private void loadText(String fileName)
@@ -187,6 +195,15 @@ namespace ConsoleInputAssist
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void sleep(int ms)
+        {
+            if (ms > 0)
+            {
+                System.Threading.Thread.Sleep(ms);
+            }
+
         }
 	}
 }

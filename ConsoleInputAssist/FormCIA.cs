@@ -184,5 +184,10 @@ namespace ConsoleInputAssist
                 e.Cancel = true;
             }
         }
+
+        private void checkBoxSendMsg_CheckedChanged(object sender, EventArgs e)
+        {
+            numericUpDownSleepTime.Enabled = !checkBoxSendMsg.Checked;
+        }
     }
 }

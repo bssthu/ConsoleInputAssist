@@ -81,5 +81,31 @@ namespace ConsoleInputAssist
         public const uint KEYEVENTF_KEYUP = 2;
         public const int VK_CAPITAL = 0x14;
         public const int VK_LSHIFT = 0xA0;
+        public const int VK_OEM_1 = 0xBA;    // ;:
+        public const int VK_OEM_2 = 0xBF;    // /?
+        public const int VK_OEM_3 = 0xC0;    // `~
+        public const int VK_OEM_4 = 0xDB;    // [{
+        public const int VK_OEM_5 = 0xDC;    // \|
+        public const int VK_OEM_6 = 0xDD;    // ]}
+        public const int VK_OEM_7 = 0xDE;    // '"
+        public const int VK_OEM_PLUS = 0xBB;    // +
+        public const int VK_OEM_COMMA = 0xBC;   // ,
+        public const int VK_OEM_MINUS = 0xBD;   // -
+        public const int VK_OEM_PERIOD = 0xBE;  // .
+
+        public static Dictionary<char, int> charToVK = new Dictionary<char, int>
+        {
+            {';', VK_OEM_1},
+            {'/', VK_OEM_2},
+            {'`', VK_OEM_3},
+            {'[', VK_OEM_4},
+            {'\\', VK_OEM_5},
+            {']', VK_OEM_6},
+            {'\'', VK_OEM_7},
+            {'=', VK_OEM_PLUS},
+            {'-', VK_OEM_MINUS},
+            {',', VK_OEM_COMMA},
+            {'.', VK_OEM_PERIOD},
+        };
     }
 }

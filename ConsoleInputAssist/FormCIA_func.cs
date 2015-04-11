@@ -18,6 +18,9 @@ namespace ConsoleInputAssist
         private IntPtr hwndAct = IntPtr.Zero;
         private bool isCatching = false;
 
+        public const String upperKey = "~!@#$%^&*()_+{}|:\"<>?";
+        public const String lowerKey = "`1234567890-=[]\\;',./";
+
         private void clearHwnd()
         {
             hwndAct = IntPtr.Zero;
@@ -115,12 +118,19 @@ namespace ConsoleInputAssist
             {
                 input.Type = 1;
                 input.ui.ki.wVk = text[i];
+
                 if (char.IsLetter(text[i]) && char.IsLower(text[i]))
                 {
                     input.ui.ki.wVk = char.ToUpper(text[i]);
                 }
+                else if (upperKey.Contains(text[i]) || lowerKey.Contains(text[i]))
+                {
+                    char lk = upperKey.Contains(text[i]) ? lowerKey[upperKey.IndexOf(text[i])] : text[i];
+                    input.ui.ki.wVk = (ushort)(char.IsNumber(lk) ? lk : WinAPI.charToVK[lk]);
+                }
                 bool pressShift = char.IsLetter(text[i]) &&
                         ((WinAPI.GetKeyState(WinAPI.VK_CAPITAL) != 0) ^ char.IsUpper(text[i])); // upper case
+                pressShift |= upperKey.Contains(text[i]);    // other
                 
                 // shift down (if neccessary)
                 if (pressShift)

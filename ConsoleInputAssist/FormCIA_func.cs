@@ -107,7 +107,10 @@ namespace ConsoleInputAssist
 
         private void sendTextInput(IntPtr hwnd, String text)
         {
-            this.Enabled = false;
+            if (numericUpDownSleepTime.Value > 0)
+            {
+                this.Enabled = false;
+            }
 
             WinAPI.INPUT inputShift = new WinAPI.INPUT();
             inputShift.Type = 1;

@@ -48,6 +48,7 @@
             this.buttonSave = new System.Windows.Forms.Button();
             this.checkBoxSendMsg = new System.Windows.Forms.CheckBox();
             this.numericUpDownSleepTime = new System.Windows.Forms.NumericUpDown();
+            this.buttonCheckUpdate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSleepTime)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,7 +92,7 @@
             this.listBoxSend.ItemHeight = 12;
             this.listBoxSend.Location = new System.Drawing.Point(13, 67);
             this.listBoxSend.Name = "listBoxSend";
-            this.listBoxSend.Size = new System.Drawing.Size(319, 340);
+            this.listBoxSend.Size = new System.Drawing.Size(319, 364);
             this.listBoxSend.TabIndex = 3;
             this.listBoxSend.Click += new System.EventHandler(this.listBoxSend_Click);
             this.listBoxSend.DoubleClick += new System.EventHandler(this.listBoxSend_DoubleClick);
@@ -125,7 +126,7 @@
             this.buttonModify.Location = new System.Drawing.Point(338, 96);
             this.buttonModify.Name = "buttonModify";
             this.buttonModify.Size = new System.Drawing.Size(101, 23);
-            this.buttonModify.TabIndex = 5;
+            this.buttonModify.TabIndex = 7;
             this.buttonModify.Text = "修改(&M)";
             this.buttonModify.UseVisualStyleBackColor = true;
             this.buttonModify.Click += new System.EventHandler(this.buttonModify_Click);
@@ -133,10 +134,10 @@
             // buttonSend
             // 
             this.buttonSend.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSend.Location = new System.Drawing.Point(338, 210);
+            this.buttonSend.Location = new System.Drawing.Point(338, 205);
             this.buttonSend.Name = "buttonSend";
             this.buttonSend.Size = new System.Drawing.Size(101, 23);
-            this.buttonSend.TabIndex = 5;
+            this.buttonSend.TabIndex = 10;
             this.buttonSend.Text = "发送(&S)";
             this.buttonSend.UseVisualStyleBackColor = true;
             this.buttonSend.Click += new System.EventHandler(this.buttonSend_Click);
@@ -144,10 +145,10 @@
             // buttonEmpty
             // 
             this.buttonEmpty.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonEmpty.Location = new System.Drawing.Point(338, 239);
+            this.buttonEmpty.Location = new System.Drawing.Point(338, 234);
             this.buttonEmpty.Name = "buttonEmpty";
             this.buttonEmpty.Size = new System.Drawing.Size(101, 23);
-            this.buttonEmpty.TabIndex = 5;
+            this.buttonEmpty.TabIndex = 11;
             this.buttonEmpty.Text = "清空(&E)";
             this.buttonEmpty.UseVisualStyleBackColor = true;
             this.buttonEmpty.Click += new System.EventHandler(this.buttonEmpty_Click);
@@ -155,10 +156,10 @@
             // buttonExit
             // 
             this.buttonExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonExit.Location = new System.Drawing.Point(338, 385);
+            this.buttonExit.Location = new System.Drawing.Point(338, 409);
             this.buttonExit.Name = "buttonExit";
             this.buttonExit.Size = new System.Drawing.Size(101, 23);
-            this.buttonExit.TabIndex = 5;
+            this.buttonExit.TabIndex = 19;
             this.buttonExit.Text = "退出(&x)";
             this.buttonExit.UseVisualStyleBackColor = true;
             this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
@@ -166,10 +167,10 @@
             // buttonHelp
             // 
             this.buttonHelp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonHelp.Location = new System.Drawing.Point(338, 356);
+            this.buttonHelp.Location = new System.Drawing.Point(338, 351);
             this.buttonHelp.Name = "buttonHelp";
             this.buttonHelp.Size = new System.Drawing.Size(101, 23);
-            this.buttonHelp.TabIndex = 5;
+            this.buttonHelp.TabIndex = 17;
             this.buttonHelp.Text = "使用说明(&H)..";
             this.buttonHelp.UseVisualStyleBackColor = true;
             this.buttonHelp.Click += new System.EventHandler(this.buttonHelp_Click);
@@ -180,10 +181,10 @@
             this.checkBoxSendEnter.AutoSize = true;
             this.checkBoxSendEnter.Checked = true;
             this.checkBoxSendEnter.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxSendEnter.Location = new System.Drawing.Point(338, 268);
+            this.checkBoxSendEnter.Location = new System.Drawing.Point(338, 263);
             this.checkBoxSendEnter.Name = "checkBoxSendEnter";
             this.checkBoxSendEnter.Size = new System.Drawing.Size(84, 16);
-            this.checkBoxSendEnter.TabIndex = 6;
+            this.checkBoxSendEnter.TabIndex = 12;
             this.checkBoxSendEnter.Text = "发送回车符";
             this.checkBoxSendEnter.UseVisualStyleBackColor = true;
             // 
@@ -191,10 +192,10 @@
             // 
             this.checkBoxSendOnClick.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBoxSendOnClick.AutoSize = true;
-            this.checkBoxSendOnClick.Location = new System.Drawing.Point(338, 290);
+            this.checkBoxSendOnClick.Location = new System.Drawing.Point(338, 285);
             this.checkBoxSendOnClick.Name = "checkBoxSendOnClick";
             this.checkBoxSendOnClick.Size = new System.Drawing.Size(84, 16);
-            this.checkBoxSendOnClick.TabIndex = 6;
+            this.checkBoxSendOnClick.TabIndex = 13;
             this.checkBoxSendOnClick.Text = "单击即发送";
             this.checkBoxSendOnClick.UseVisualStyleBackColor = true;
             // 
@@ -204,7 +205,7 @@
             this.buttonInsert.Location = new System.Drawing.Point(338, 67);
             this.buttonInsert.Name = "buttonInsert";
             this.buttonInsert.Size = new System.Drawing.Size(101, 23);
-            this.buttonInsert.TabIndex = 5;
+            this.buttonInsert.TabIndex = 6;
             this.buttonInsert.Text = "插入(&I)";
             this.buttonInsert.UseVisualStyleBackColor = true;
             this.buttonInsert.Click += new System.EventHandler(this.buttonInsert_Click);
@@ -215,10 +216,10 @@
             this.checkBoxClearOnAdd.AutoSize = true;
             this.checkBoxClearOnAdd.Checked = true;
             this.checkBoxClearOnAdd.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxClearOnAdd.Location = new System.Drawing.Point(338, 334);
+            this.checkBoxClearOnAdd.Location = new System.Drawing.Point(338, 329);
             this.checkBoxClearOnAdd.Name = "checkBoxClearOnAdd";
             this.checkBoxClearOnAdd.Size = new System.Drawing.Size(84, 16);
-            this.checkBoxClearOnAdd.TabIndex = 6;
+            this.checkBoxClearOnAdd.TabIndex = 16;
             this.checkBoxClearOnAdd.Text = "添加后清空";
             this.checkBoxClearOnAdd.UseVisualStyleBackColor = true;
             // 
@@ -228,7 +229,7 @@
             this.buttonLoad.Location = new System.Drawing.Point(338, 125);
             this.buttonLoad.Name = "buttonLoad";
             this.buttonLoad.Size = new System.Drawing.Size(101, 23);
-            this.buttonLoad.TabIndex = 5;
+            this.buttonLoad.TabIndex = 8;
             this.buttonLoad.Text = "导入(&<)..";
             this.buttonLoad.UseVisualStyleBackColor = true;
             this.buttonLoad.Click += new System.EventHandler(this.buttonLoad_Click);
@@ -239,7 +240,7 @@
             this.buttonSave.Location = new System.Drawing.Point(338, 154);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(101, 23);
-            this.buttonSave.TabIndex = 5;
+            this.buttonSave.TabIndex = 9;
             this.buttonSave.Text = "导出(&>)..";
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
@@ -250,10 +251,10 @@
             this.checkBoxSendMsg.AutoSize = true;
             this.checkBoxSendMsg.Checked = true;
             this.checkBoxSendMsg.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxSendMsg.Location = new System.Drawing.Point(338, 312);
+            this.checkBoxSendMsg.Location = new System.Drawing.Point(338, 307);
             this.checkBoxSendMsg.Name = "checkBoxSendMsg";
             this.checkBoxSendMsg.Size = new System.Drawing.Size(42, 16);
-            this.checkBoxSendMsg.TabIndex = 6;
+            this.checkBoxSendMsg.TabIndex = 14;
             this.checkBoxSendMsg.Text = "MSG";
             this.checkBoxSendMsg.UseVisualStyleBackColor = true;
             this.checkBoxSendMsg.CheckedChanged += new System.EventHandler(this.checkBoxSendMsg_CheckedChanged);
@@ -262,7 +263,7 @@
             // 
             this.numericUpDownSleepTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.numericUpDownSleepTime.Enabled = false;
-            this.numericUpDownSleepTime.Location = new System.Drawing.Point(386, 311);
+            this.numericUpDownSleepTime.Location = new System.Drawing.Point(386, 306);
             this.numericUpDownSleepTime.Maximum = new decimal(new int[] {
             90000,
             0,
@@ -270,19 +271,30 @@
             0});
             this.numericUpDownSleepTime.Name = "numericUpDownSleepTime";
             this.numericUpDownSleepTime.Size = new System.Drawing.Size(54, 21);
-            this.numericUpDownSleepTime.TabIndex = 8;
+            this.numericUpDownSleepTime.TabIndex = 15;
+            // 
+            // buttonCheckUpdate
+            // 
+            this.buttonCheckUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCheckUpdate.Location = new System.Drawing.Point(338, 380);
+            this.buttonCheckUpdate.Name = "buttonCheckUpdate";
+            this.buttonCheckUpdate.Size = new System.Drawing.Size(101, 23);
+            this.buttonCheckUpdate.TabIndex = 18;
+            this.buttonCheckUpdate.Text = "检查更新(&U)..";
+            this.buttonCheckUpdate.Click += new System.EventHandler(this.buttonCheckUpdate_Click);
             // 
             // FormCIA
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(452, 425);
+            this.ClientSize = new System.Drawing.Size(452, 449);
             this.Controls.Add(this.numericUpDownSleepTime);
             this.Controls.Add(this.checkBoxSendMsg);
             this.Controls.Add(this.checkBoxClearOnAdd);
             this.Controls.Add(this.checkBoxSendOnClick);
             this.Controls.Add(this.checkBoxSendEnter);
             this.Controls.Add(this.buttonExit);
+            this.Controls.Add(this.buttonCheckUpdate);
             this.Controls.Add(this.buttonHelp);
             this.Controls.Add(this.buttonEmpty);
             this.Controls.Add(this.buttonSend);
@@ -297,7 +309,7 @@
             this.Controls.Add(this.textBoxWindowName);
             this.Controls.Add(this.buttonGetWindowName);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(390, 464);
+            this.MinimumSize = new System.Drawing.Size(390, 488);
             this.Name = "FormCIA";
             this.Text = "ConsoleInputAssist by bss";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormCIA_FormClosing);
@@ -328,6 +340,7 @@
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.CheckBox checkBoxSendMsg;
         private System.Windows.Forms.NumericUpDown numericUpDownSleepTime;
+        private System.Windows.Forms.Button buttonCheckUpdate;
     }
 }
 

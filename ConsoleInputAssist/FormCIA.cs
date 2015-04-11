@@ -142,7 +142,8 @@ namespace ConsoleInputAssist
                 "单击“插入”可在选中项前面插入一项。\n" +
                 "在ListBox中选择要发送的项，按回车或双击或单击“发送”按钮，将内容发到目标窗口。按Delete键删除该项。\n" +
                 "可按需修改ListBox的内容，右键单击项可将其内容复制到TextBox。\n" +
-                "允许导入导出数据。";
+                "允许导入导出数据。\n" +
+                "如果无法输入，可以取消勾选MSG。如果还是无法输入，可以在MSG右边设置按键延时，如100毫秒。";
             MessageBox.Show(helpText);
         }
 
@@ -188,6 +189,11 @@ namespace ConsoleInputAssist
         private void checkBoxSendMsg_CheckedChanged(object sender, EventArgs e)
         {
             numericUpDownSleepTime.Enabled = !checkBoxSendMsg.Checked;
+        }
+
+        private void buttonCheckUpdate_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://github.com/bssthu/ConsoleInputAssist/releases");
         }
     }
 }
